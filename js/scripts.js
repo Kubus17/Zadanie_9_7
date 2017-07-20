@@ -12,7 +12,6 @@ var newGameBtn = document.getElementById('js-newGameButton'),
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
-var x = Math.random();
 
 function playerPick(playerPick) {
     console.log(playerPick);
@@ -60,9 +59,17 @@ function setGameElements() {
         resultsElem.style.display = 'none';
     }
 }
+setGameElements();
+function setEndedGame() {
+    if (player.score == 4 || computer.score == 4){
+        alert("Koniec Gry");
+        
+    }
+        
+}
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
-    return possiblePicks[Math.floor(x * 3)];
+    return possiblePicks[Math.floor(Math.random() * 3)];
 }
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
@@ -99,5 +106,6 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
-
+  setGamePoints();
+ setEndedGame();
 }
