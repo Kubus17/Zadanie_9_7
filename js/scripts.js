@@ -61,7 +61,7 @@ function setGameElements() {
 }
 setGameElements();
 function setEndedGame() {
-    if (player.score == 4 || computer.score == 4){
+    if (player.score == 10 || computer.score == 10){
         alert("Koniec Gry");
         
     }
