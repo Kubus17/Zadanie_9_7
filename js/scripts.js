@@ -61,11 +61,15 @@ function setGameElements() {
 }
 setGameElements();
 function setEndedGame() {
-    if (player.score == 10 || computer.score == 10){
+    if (player.score == 10 || computer.score == 10) {
         alert("Koniec Gry");
-        
+        gameState = 'ended';
+        setGameElements();
+        player.score = 0;
+        computer.score = 0;
+        setGamePoints();
     }
-        
+
 }
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -106,6 +110,6 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
-  setGamePoints();
- setEndedGame();
+    setGamePoints();
+    setEndedGame();
 }
